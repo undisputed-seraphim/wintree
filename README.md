@@ -4,9 +4,13 @@ A Windows port of the [`tree`](https://linux.die.net/man/1/tree) executable that
 
 Work-in-progress.
 
+### Why is this executable so big and fat? Unix `tree` was small!
+
+Well I don't feel like rolling my own thousand-line flag selecting code so I'm just going to reuse Boost program_options.
+
 ## Building
 
-You simply need CMake. No dependencies are required. Note that this project uses win32 APIs and therefore does not compile on operating systems that are not Windows.
+You simply need CMake and a relatively recent version of Boost.program_options.
 
 ## To Do
 

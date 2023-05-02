@@ -3,9 +3,9 @@
 #include <string_view>
 #include <vector>
 
-#define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <fileapi.h>
+#include <sdkddkver.h>
 #include <sys/stat.h>
 //#pragma comment(lib, "User32.lib")
 
@@ -18,7 +18,7 @@ int Walk(std::wstring& rootPath, std::vector<std::wstring_view>& headers);
 int Walk(WIN32_FIND_DATAW thisEntry, std::wstring& thisParentPath, std::vector<std::wstring_view>& headers, bool isLast);
 
 void LogSystemError(unsigned long error) {
-	std::array<wchar_t, 1024> buffer; // Stack allocated buffer
+	std::array<wchar_t, 2048> buffer; // Stack allocated buffer
 	auto msglen = FormatMessageW(
 		FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
 		NULL,
